@@ -37,7 +37,17 @@ public class BufferMgr {
     */
    public BufferMgr(int numbuffers) {
       bufferMgr = new BasicBufferMgr(numbuffers);
+
    }
+
+       /**
+     * Set buffer selection strategy
+     *
+     * @param s (0 - Naive, 1 - FIFO, 2 - LRU, 3 - Clock)
+     */
+    public void setStrategy(int s) {
+      this.bufferMgr.setStrategy(s);
+  }
    
    /**
     * Pins a buffer to the specified block, potentially
@@ -120,5 +130,9 @@ public class BufferMgr {
    
    private boolean waitingTooLong(long starttime) {
       return System.currentTimeMillis() - starttime > MAX_TIME;
+   }
+
+   public Buffer[] getBuffers() {
+      return this.bufferMgr.getBuffers();
    }
 }

@@ -1,5 +1,6 @@
 package simpledb.buffer;
 
+import java.util.logging.Logger;
 import simpledb.file.*;
 
 /**
@@ -173,7 +174,8 @@ class BasicBufferMgr {
      * @return
      */
     private Buffer useFIFOStrategy() {
-        throw new UnsupportedOperationException();
+        Buffer firstIn;
+        return new Buffer();
     }
 
     /**
