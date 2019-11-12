@@ -1,5 +1,6 @@
 package simpledb.buffer;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import simpledb.file.*;
 
@@ -174,8 +175,24 @@ class BasicBufferMgr {
      * @return
      */
     private Buffer useFIFOStrategy() {
-        Buffer firstIn;
-        return new Buffer();
+        // since buffer values (in this case) always increase, 
+        // comparing the values is the same as comparing the times.
+        ArrayList<Buffer> unpinnedBuffers = new ArrayList<Buffer>();
+        for (Buffer b : getBuffers()) {
+            if (!b.isPinned())
+                unpinnedBuffers.add(b);
+        }
+        
+        Buffer firstIn = null;
+        if (unpinnedBuffers.size() > 0) {
+            firstIn = unpinnedBuffers.get(0);
+            for (Buffer b : unpinnedBuffers) {
+                if (b.block().number() < firstIn.block().number())
+                    firstIn = b;
+            }
+        }
+        
+        return firstIn;
     }
 
     /**
@@ -193,6 +210,30 @@ class BasicBufferMgr {
      * @return
      */
     private Buffer useClockStrategy() {
-        throw new UnsupportedOperationException();
+        int startTime = 1;
+        //Buffer clockPos = getBuffers()[0];
+        //for (int i = 0; i < getBuffers().length; i++) {
+        //    if (getBuffers()[i].block().number() > clockPos.block().number()) {
+        //        startTime = i;
+        //    }
+        //}
+        System.out.print("Current state: {");
+        for (Buffer b : getBuffers()) {
+            System.out.print(b.block().number() + ",");
+        }
+        System.out.print("}\nStartin: ");
+        System.out.println(getBuffers()[startTime].block().number());
+        Buffer unpinnedBuffer = null;
+        while (unpinnedBuffer == null) {
+            startTime++;
+            if (startTime > getBuffers().length - 1)
+                startTime = 0;
+            
+            if (!getBuffers()[startTime].isPinned())
+                unpinnedBuffer = getBuffers()[startTime];
+            
+            
+        }
+        return unpinnedBuffer;
     }
 }

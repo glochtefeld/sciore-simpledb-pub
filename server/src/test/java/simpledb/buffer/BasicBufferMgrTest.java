@@ -125,11 +125,13 @@ public class BasicBufferMgrTest {
         ArrayList<Integer> result = new ArrayList();
         
         instance4.setStrategy(1);
-
+        //System.out.println("Starting pin");
         instance4.pin(new Block("tempbuffer", 60));
+        //System.out.println("Pinned");
         instance4.pin(new Block("tempbuffer", 70));
-
+        
         for (Buffer b: instance4.getBuffers()) {
+            //System.out.println(b.block().number());
             result.add(b.block().number());
         }
         
@@ -209,11 +211,13 @@ public class BasicBufferMgrTest {
         ArrayList<Integer> result = new ArrayList();
         
         instance4.setStrategy(3);
-
+        //System.out.println("Starting");
         instance4.pin(new Block("tempbuffer", 60));
+        //System.out.println("Pinned");
         instance4.pin(new Block("tempbuffer", 70));
 
         for (Buffer b: instance4.getBuffers()) {
+            //System.out.println(b.block().number());
             result.add(b.block().number());
         }
         
