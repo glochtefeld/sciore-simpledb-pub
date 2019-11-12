@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="13" failures="0" name="simpledb.buffer.BasicBufferMgrTest" time="0.343" errors="5" skipped="5">
+<testsuite tests="13" failures="0" name="simpledb.buffer.BasicBufferMgrTest" time="0.237" errors="4" skipped="5">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5-ea+10-post-Ubuntu-0ubuntu1"/>
@@ -61,20 +61,8 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testPin" time="0.043">
-    <skipped/>
-  </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testPinNew" time="0.043">
-    <skipped/>
-  </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testUnpin" time="0.043">
-    <skipped/>
-  </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testAvailable" time="0.043">
-    <skipped/>
-  </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testNaiveStrategy4" time="0.043"/>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testNaiveStrategy5" time="0.024">
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testNaiveStrategy4" time="0.044"/>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testNaiveStrategy5" time="0.026">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at simpledb.buffer.BasicBufferMgrTest.testNaiveStrategy5(BasicBufferMgrTest.java:112)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -119,8 +107,8 @@ transaction 2 committed
 Naive Strategy (5 buffers)
 </system-out>
   </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFIFOStrategy4" time="0.015"/>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFIFOStrategy5" time="0.015">
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFIFOStrategy4" time="0.013"/>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFIFOStrategy5" time="0.014">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at simpledb.buffer.BasicBufferMgr.useFIFOStrategy(BasicBufferMgr.java:190)
 	at simpledb.buffer.BasicBufferMgr.chooseUnpinnedBuffer(BasicBufferMgr.java:132)
@@ -169,58 +157,10 @@ transaction 4 committed
 FIFO Strategy (5 buffers)
 </system-out>
   </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testLRUStrategy4" time="0.011">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at simpledb.buffer.BasicBufferMgr.useLRUStrategy(BasicBufferMgr.java:204)
-	at simpledb.buffer.BasicBufferMgr.chooseUnpinnedBuffer(BasicBufferMgr.java:134)
-	at simpledb.buffer.BasicBufferMgr.pin(BasicBufferMgr.java:63)
-	at simpledb.buffer.BufferMgr.pin(BufferMgr.java:63)
-	at simpledb.buffer.BasicBufferMgrTest.testLRUStrategy4(BasicBufferMgrTest.java:173)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:30)
-	at org.junit.rules.ExpectedException$ExpectedExceptionStatement.evaluate(ExpectedException.java:110)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:18)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
-	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
-	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:30)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-    <system-out>new transaction: 5
-recovering existing database
-transaction 5 committed
-LRU Strategy (4 buffers)
-</system-out>
-  </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testLRUStrategy5" time="0.014">
-    <error type="java.lang.UnsupportedOperationException">java.lang.UnsupportedOperationException
-	at simpledb.buffer.BasicBufferMgr.useLRUStrategy(BasicBufferMgr.java:204)
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testLRUStrategy4" time="0.014"/>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testLRUStrategy5" time="0.016">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at simpledb.buffer.BasicBufferMgr.useLRUStrategy(BasicBufferMgr.java:206)
 	at simpledb.buffer.BasicBufferMgr.chooseUnpinnedBuffer(BasicBufferMgr.java:134)
 	at simpledb.buffer.BasicBufferMgr.pin(BasicBufferMgr.java:63)
 	at simpledb.buffer.BufferMgr.pin(BufferMgr.java:63)
@@ -265,16 +205,12 @@ LRU Strategy (4 buffers)
 recovering existing database
 transaction 6 committed
 LRU Strategy (5 buffers)
-</system-out>
+Current state: {10,50,30,40,</system-out>
   </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testClockStrategy4" time="0.017"/>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testClockStrategy4" time="0.013"/>
   <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testClockStrategy5" time="0.014">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at simpledb.buffer.BasicBufferMgr.useClockStrategy(BasicBufferMgr.java:222)
-	at simpledb.buffer.BasicBufferMgr.chooseUnpinnedBuffer(BasicBufferMgr.java:136)
-	at simpledb.buffer.BasicBufferMgr.pin(BasicBufferMgr.java:63)
-	at simpledb.buffer.BufferMgr.pin(BufferMgr.java:63)
-	at simpledb.buffer.BasicBufferMgrTest.testClockStrategy5(BasicBufferMgrTest.java:238)
+	at simpledb.buffer.BasicBufferMgrTest.testClockStrategy5(BasicBufferMgrTest.java:242)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -315,9 +251,21 @@ LRU Strategy (5 buffers)
 recovering existing database
 transaction 8 committed
 Clock Strategy (5 buffers)
-Current state: {10,50,30,40,</system-out>
+</system-out>
   </testcase>
-  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFlushAll" time="0.018">
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testFlushAll" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testPin" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testPinNew" time="0.016">
+    <skipped/>
+  </testcase>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testUnpin" time="0.017">
+    <skipped/>
+  </testcase>
+  <testcase classname="simpledb.buffer.BasicBufferMgrTest" name="testAvailable" time="0.018">
     <skipped/>
   </testcase>
 </testsuite>

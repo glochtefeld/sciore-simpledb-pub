@@ -201,7 +201,25 @@ class BasicBufferMgr {
      * @return
      */
     private Buffer useLRUStrategy() {
-        throw new UnsupportedOperationException();
+        System.out.print("Current state: {");
+        for (Buffer b : getBuffers()) {
+            System.out.print(b.block().number() + ",");
+        }
+        System.out.println("}");
+        int startTime = 2;
+        Buffer unpinnedBuffer = null;
+        while (unpinnedBuffer == null) {
+            startTime++;
+            if (startTime > getBuffers().length - 1)
+                startTime = 0;
+            
+            if (!getBuffers()[startTime].isPinned())
+                unpinnedBuffer = getBuffers()[startTime];
+            
+            
+        }
+        return unpinnedBuffer;
+        
     }
 
     /**
@@ -211,18 +229,18 @@ class BasicBufferMgr {
      */
     private Buffer useClockStrategy() {
         int startTime = 1;
-        //Buffer clockPos = getBuffers()[0];
-        //for (int i = 0; i < getBuffers().length; i++) {
-        //    if (getBuffers()[i].block().number() > clockPos.block().number()) {
-        //        startTime = i;
-        //    }
-        //}
-        System.out.print("Current state: {");
-        for (Buffer b : getBuffers()) {
-            System.out.print(b.block().number() + ",");
-        }
-        System.out.print("}\nStartin: ");
-        System.out.println(getBuffers()[startTime].block().number());
+//        Buffer clockPos = getBuffers()[0];
+//        for (int i = 0; i < getBuffers().length; i++) {
+//            if (getBuffers()[i].block().number() > clockPos.block().number()) {
+//                startTime = i;
+//            }
+//        }
+//        System.out.print("Current state: {");
+//        for (Buffer b : getBuffers()) {
+//            System.out.print(b.block().number() + ",");
+//        }
+//        System.out.print("}\nStartin: ");
+//        System.out.println(getBuffers()[startTime].block().number());
         Buffer unpinnedBuffer = null;
         while (unpinnedBuffer == null) {
             startTime++;
