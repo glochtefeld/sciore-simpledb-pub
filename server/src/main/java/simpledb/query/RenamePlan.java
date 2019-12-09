@@ -26,10 +26,9 @@ public class RenamePlan implements Plan {
     */
    public RenamePlan(Plan p, String oldField, String newField) {
       this.p = p;
-      schema.add(oldField, p.schema());
-      schema.add(newField,p.schema());
-      this.newField = newField;
-      this.oldField = oldField;
+      if (this.p.schema().hasField(oldField)) {
+          this.p.schema().renameField(oldField, newField);
+      }
    }
    
    /**
@@ -38,7 +37,7 @@ public class RenamePlan implements Plan {
     */
    public Scan open() {
       Scan s = p.open();
-      return new RenameScan(s, schema.fields(), this.oldField, this.newField);
+      return new RenameScan(s, schema.fields());
    }
    
    /**

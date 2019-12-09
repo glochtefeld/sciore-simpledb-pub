@@ -14,8 +14,6 @@ import java.util.Collection;
 public class RenameScan implements Scan {
     private Scan s;
     private Collection<String> fieldlist;
-    private String newName;
-    private String oldName;
    
    /**
     * Creates a project scan having the specified
@@ -23,11 +21,9 @@ public class RenameScan implements Scan {
     * @param s the underlying scan
     * @param fieldlist the list of field names
     */
-   public RenameScan(Scan s, Collection<String> fieldlist, String oldName, String newName) {
+   public RenameScan(Scan s, Collection<String> fieldlist) {
       this.s = s;
       this.fieldlist = fieldlist;
-      this.newName = newName;
-      this.oldName = oldName;
    }
    
    public void beforeFirst() {

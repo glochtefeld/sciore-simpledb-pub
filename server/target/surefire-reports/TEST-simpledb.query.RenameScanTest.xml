@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="simpledb.query.RenameScanTest" time="0.015" errors="1" skipped="0">
+<testsuite tests="1" failures="1" name="simpledb.query.RenameScanTest" time="0.017" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5-ea+10-post-Ubuntu-0ubuntu1"/>
@@ -61,12 +61,13 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="simpledb.query.RenameScanTest" name="testRenameScan" time="0.015">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at simpledb.record.Schema.type(Schema.java:105)
-	at simpledb.record.Schema.add(Schema.java:65)
-	at simpledb.query.RenamePlan.&lt;init&gt;(RenamePlan.java:29)
-	at simpledb.query.RenameScanTest.testRenameScan(RenameScanTest.java:44)
+  <testcase classname="simpledb.query.RenameScanTest" name="testRenameScan" time="0.017">
+    <failure message="expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;true&gt; but was:&lt;false&gt;
+	at org.junit.Assert.fail(Assert.java:93)
+	at org.junit.Assert.failNotEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:128)
+	at org.junit.Assert.assertEquals(Assert.java:147)
+	at simpledb.query.RenameScanTest.testRenameScan(RenameScanTest.java:47)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -100,13 +101,14 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
+</failure>
     <system-out>new transaction: 1
 recovering existing database
 transaction 1 committed
 RENAME
 new transaction: 2
 transaction 2 committed
+[]
 </system-out>
   </testcase>
 </testsuite>

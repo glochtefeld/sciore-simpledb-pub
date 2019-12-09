@@ -95,6 +95,12 @@ public class Schema {
       return fields().contains(fldname);
    }
    
+   public void renameField(String oldField, String newField) {
+       FieldInfo currentField = info.get(oldField);
+       info.remove(oldField);
+       info.put(newField, currentField);
+   }
+   
    /**
     * Returns the type of the specified field, using the
     * constants in {@link java.sql.Types}.

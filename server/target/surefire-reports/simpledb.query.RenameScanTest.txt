@@ -1,13 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: simpledb.query.RenameScanTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.116 sec <<< FAILURE!
-testRenameScan(simpledb.query.RenameScanTest)  Time elapsed: 0.015 sec  <<< ERROR!
-java.lang.NullPointerException
-	at simpledb.record.Schema.type(Schema.java:105)
-	at simpledb.record.Schema.add(Schema.java:65)
-	at simpledb.query.RenamePlan.<init>(RenamePlan.java:29)
-	at simpledb.query.RenameScanTest.testRenameScan(RenameScanTest.java:44)
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.095 sec <<< FAILURE!
+testRenameScan(simpledb.query.RenameScanTest)  Time elapsed: 0.017 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.junit.Assert.fail(Assert.java:93)
+	at org.junit.Assert.failNotEquals(Assert.java:647)
+	at org.junit.Assert.assertEquals(Assert.java:128)
+	at org.junit.Assert.assertEquals(Assert.java:147)
+	at simpledb.query.RenameScanTest.testRenameScan(RenameScanTest.java:47)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
