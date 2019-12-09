@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="simpledb.query.SelectScanTest" time="0.029" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="simpledb.query.ExtendScanTest" time="0.011" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.5-ea+10-post-Ubuntu-0ubuntu1"/>
@@ -13,7 +13,7 @@
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="test" value="simpledb.query.SelectScanTest"/>
+    <property name="test" value="simpledb.query.ExtendScanTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="/home/lochga01/CS440/sciore-simpledb-pub/server"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
@@ -33,7 +33,7 @@
     <property name="java.class.version" value="55.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.3.0-23-generic"/>
+    <property name="os.version" value="5.3.0-24-generic"/>
     <property name="user.home" value="/home/lochga01"/>
     <property name="user.timezone" value="America/Chicago"/>
     <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
@@ -43,7 +43,7 @@
     <property name="java.class.path" value="/snap/netbeans/18/netbeans/java/maven/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=simpledb.query.SelectScanTest -Dmaven.ext.class.path=/snap/netbeans/18/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=simpledb.query.ExtendScanTest -Dmaven.ext.class.path=/snap/netbeans/18/netbeans/java/maven-nblib/netbeans-eventspy.jar surefire:test"/>
     <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -61,8 +61,5 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="simpledb.query.SelectScanTest" name="testDBCreation" time="0.008"/>
-  <testcase classname="simpledb.query.SelectScanTest" name="testStudentData" time="0.002"/>
-  <testcase classname="simpledb.query.SelectScanTest" name="testSelectAllScan" time="0.013"/>
-  <testcase classname="simpledb.query.SelectScanTest" name="testSelectByConstantScan" time="0.006"/>
+  <testcase classname="simpledb.query.ExtendScanTest" name="testExtendScan" time="0.011"/>
 </testsuite>
