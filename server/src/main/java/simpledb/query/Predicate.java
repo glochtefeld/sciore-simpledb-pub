@@ -44,7 +44,7 @@ public class Predicate {
          return false;
       return true;
    }
-   
+
    /** 
     * Calculates the extent to which selecting on the predicate 
     * reduces the number of records output by a query.
